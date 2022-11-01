@@ -1,0 +1,51 @@
+.text-center
+    text-align: center
+.w-100
+    width: 100%
+.h-100
+    height: 100%
+.flex
+    display: flex
+.jc-center
+        justify-content: center
+.ai-center
+        align-items: center
+.container
+    padding-inline: 2em
+    @media screen and (min-width: 62em)
+        padding-inline: 14em
+        margin-top: 18em
+.container_inside
+    padding: 0 1.6em 3em 1.6em
+    @media screen and (min-width: 62em)
+        padding: 1.5em 10em 8em 0
+    &_reverse
+        @media screen and (min-width: 62em)
+           padding: 6em 3em 8em 3em                
+.animated
+    animation: $animation
+.section
+    opacity: 0
+    &.animated
+        opacity: 1
+.object-fit
+    object-fit: cover
+@media screen and (min-width: 48em)
+    .row
+        display: flex
+        &_reverse
+            flex-direction: row-reverse
+        .column
+            flex: 1
+        .column-2
+            flex: 2
+
+.padding-left
+    padding-left: 0
+    @media screen and (min-width: 62em)
+        padding-left: 14em !important
+        margin-top: 18em
+
+@media screen and (min-width: 62em)
+    .desktop-center
+        text-align: center

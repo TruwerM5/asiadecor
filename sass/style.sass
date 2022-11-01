@@ -1,0 +1,366 @@
+@import reset
+@import variables
+@import reuse
+@import components/_block
+@import components/_primaryButton
+@import components/_carousel
+.header
+    background: no-repeat center/cover url('../images/top-section-bg.png') $color-grey
+    color: $color-white
+    margin-bottom: 4.8em
+    .block
+        margin-top: 6.4em
+.navbar
+    position: fixed
+    inset: 0
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: 6.4em
+    max-width: inherit
+    margin: 0 auto
+    padding: 1.4em 1.6em
+    background-color: inherit
+    z-index: 20
+    @media screen and (min-width: 48em)
+        position: static
+        max-width: 100%
+        height: 12.6em
+        padding-block: 0
+        padding-inline: 2em
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+        background-color: transparent
+        &__logo-wrapper
+            width: 13em
+    &__list-wrapper
+        position: absolute
+        overflow-y: hidden
+        top: 50vh
+        left: 50%
+        width: 0
+        height: 0
+        background-color: $color-grey
+        transition: all .3s
+        z-index: 20
+        @media screen and (min-width: 48em)
+            position: static
+            overflow: visible
+            width: 100%
+            height: 100%
+            display: flex
+            align-items: center
+            background-color: transparent
+            &__list
+                display: flex
+                justify-content: center
+                align-items: center
+                flex: 1.5
+                height: 100%
+        &.active
+            top: 6.4em
+            width: 100%
+            height: calc( 100vh - 6.4em )
+            left: 0
+            @media screen and (min-width: 48em)
+                top: 0
+                height: 100%
+                left: 0
+    &__item
+        position: relative
+        @media screen and (min-width: 48em)
+            height: 100%
+            display: flex
+            align-items: center
+    &__link
+        position: relative
+        font-size: 1.6rem
+        padding: 1.6rem
+        transition: text-indent .3s
+        @media screen and (min-width: 48em)
+            display: flex
+            align-items: center
+            justify-content: center
+            gap: 0.3em
+            transition: none
+            font-size: 1.8rem
+        &:hover,
+        &.active
+            text-indent: 1em
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+            @media screen and (min-width: 48em)
+                text-indent: 0
+                border-bottom: none
+                background-color: inherit
+        &:hover
+            background-color: $color-pink
+            @media screen and (min-width: 48em)
+                background-color: inherit
+        &:visited
+            background-color: inherit
+            
+                
+    &__link_nested
+        &::after
+            content: ''
+            position: absolute
+            left: calc( 100% - 2em )
+            top: 50%
+            width: 0.3em
+            height: 0.3em
+            display: block
+            border-top: 1px solid #FFF
+            border-right: 1px solid #FFF
+            transform: translateY(-50%) rotate(45deg) skew(15deg, 15deg)
+            transition: left .5s
+            @media screen and (min-width: 48em)
+                position: static
+                transform: rotate(45deg) skew(15deg, 15deg)
+        &:hover::after
+            left: calc( 100% - 1em )
+        &.active::after
+            left: 1em
+            transform: translateY(-50%) rotate(135deg) skew(15deg, 15deg)
+            transition: transform .3s, left .3s
+            @media screen and (min-width: 48em)
+                transform: rotate(135deg) skew(15deg, 15deg)
+                transition: transform .3s, left 1s
+    &__nested-list
+        position: relative
+        height: 0
+        visibility: hidden
+        opacity: 0
+        transition: height .5s, opacity .5s, visibility .5s
+        @media screen and (min-width: 48em)
+            display: none
+            padding: 3.4em 3.2em
+            transition: none
+            background: #4C4950
+        &.active
+            height: 100vh
+            visibility: visible        
+            opacity: 1
+            @media screen and (min-width: 48em)
+                position: absolute
+                left: 0
+                top: 100%
+                height: fit-content
+                display: block
+    &__contacts
+        position: absolute
+        width: 100%
+        bottom: 0
+        padding: 2.2rem 2.6rem
+        font-size: 1.8rem
+        font-family: $ff-roboto
+        font-weight: 400
+        justify-content: space-between
+        align-items: center
+        background-color: $color-pink
+        @media screen and (min-width: 48em)
+            display: none
+        @media screen and (min-width: 62em)
+            position: static
+            flex: 0.5
+            height: 100%
+        &__text
+            line-height: 1.6
+        &__ph-btn
+            width: 6.4rem
+            height: 6.4rem
+            padding: 2.3rem
+            border: 1px solid #FFF
+            border-radius: 50%
+.btn-group
+    display: flex
+    align-items: center
+    gap: 2.8em
+    font-size: 1.8rem
+    &__item
+        display: flex
+
+.toggler
+    width: 1em
+    height: 0.7em
+    position: relative
+    @media screen and (min-width: 48em)
+        display: none
+    &__item
+        position: absolute
+        background-color: #fff
+        height: 1px
+        width: 100%
+        transition: all .2s ease-in-out
+        &:nth-child(1)
+            top: 0
+        &:nth-child(2)
+            top: 50%
+        &:nth-child(3)
+            top: 100%
+    &_toggled
+        .toggler__item:nth-child(1)
+            top: 50%
+            transform: rotate(45deg)
+        .toggler__item:nth-child(2)
+            opacity: 0
+        .toggler__item:nth-child(3)
+            position: absolute
+            top: 50%
+            transform: rotate(-45deg)
+
+.services
+    position: relative
+    @media screen and (max-width: 48em)
+        padding-inline: 0 
+    &__content
+        .row
+            align-items: baseline
+    &__item        
+        margin-bottom: 3.2em
+    &__icon
+        width: 3.4em
+        margin-bottom: 2.4em
+    &__text
+        font-size: 1.4rem
+        @media screen and (min-width: 62em)
+            font-size: 1.6rem
+    &__img
+        object-position: right
+    &__title
+        @media screen and (min-width: 62em)
+            font-size: 2.4rem
+
+.benefits
+    padding-block: 4.8em 6.4em
+    color: $color-white
+    background: $color-grey url('../images/decor-bg.png') no-repeat center
+    background-size: cover
+    &__item
+        gap: 2.4em
+        margin-bottom: 3.2em
+        @media screen and (min-width: 48em)
+            flex-direction: column
+            align-items: flex-start
+            justify-content: center
+            padding-inline: 1em
+        @media screen and (min-width: 62em)
+            padding-inline: 2em
+    &__text
+        font-size: 1.4rem
+        line-height: 1.5
+        @media screen and (min-width: 62em)
+            font-size: 2rem
+
+.about
+    &__top.container,
+    &__bottom.container
+        @media screen and (max-width: 48em)
+            padding-inline: 0
+    &__bottom
+        background-color: #FBFAFA
+        margin-top: 0
+        &__description
+            padding-top: 4em
+            color: $color-white
+            background: $color-pink url('../images/top-section-bg.png') no-repeat center
+            background-size: cover
+    &__bottom__img
+        display: none
+        @media screen and (min-width: 48em)
+            display: block
+    &__text
+        font-family: $ff-roboto
+        font-size: 1.4rem
+        @media screen and (min-width: 62em)
+            font-size: 1.8rem
+.advantages
+    padding: 4.8em 3.6em
+    @media screen and (min-width: 62em)
+        margin-top: 10em
+        padding: 0
+    &__item
+        margin-bottom: 3.2em
+        flex: 1
+    &__primary
+        font-size: 6rem
+        font-weight: 300
+        color: $color-pink
+        line-height: 1.3
+    &__secondary
+        font-size: 1.4rem
+        font-weight: 400
+        font-family: $ff-roboto
+.equipment
+    &__text
+        font-size: 1.4rem
+        margin-bottom: 4rem
+        @media screen and (min-width: 62em)
+            font-size: 1.8rem
+    .primary-button
+        margin-bottom: 0
+.partners
+    @media screen and (min-width: 62em)
+        text-align: center
+    .brands
+        position: relative
+        height: 6em
+        overflow-x: scroll
+        &::-webkit-scrollbar
+            display: none
+        &__list
+            height: 100%
+        &__item
+            flex: 1
+            min-width: 10em
+.footer
+    padding-block: 3.7em 4.1em
+    background: $color-grey
+    color: $color-white
+    &__top
+        padding-bottom: 2.4em
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+    &__list__contacts
+        display: flex
+        flex-direction: column
+        gap: 3.2em
+        &__phone-number
+            font-family: $ff-roboto
+            font-size: 1.6rem
+    &__item
+        padding-block: 0.6em
+    &__link
+        display: inline-block
+        font-size: 1.4rem
+        @media screen and (min-width: 62em)
+            font-size: 1.8rem
+    &__social
+        gap: 0.85em
+        &__link
+            position: relative
+            padding: 1.9em
+            border: 1px solid rgba(255, 255, 255, 0.1)
+            border-radius: 50%
+            transition: background-color .3s
+            &:hover
+                background-color: $color-pink
+            img
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+    &__bottom
+        padding-top: 2.7em
+        &__copyright
+            margin-bottom: 1.6rem
+            font-size: 1.2rem
+            @media screen and (min-width: 62em)
+                font-size: 1.8rem
+        &__text
+            font-family: $ff-roboto
+            font-size: 1.2rem
+            gap: .5em
+            @media screen and (min-width: 62em)
+                font-size: 1.8rem
+        .dark
+            opacity: 0.4
+        .github-link
+            text-decoration: underline

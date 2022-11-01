@@ -1,0 +1,68 @@
+@import variables
+*,
+*::before,
+*::after
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+html
+    font-size: 10px
+    scroll-behavior: smooth
+
+body
+    max-width: 144em
+    margin-inline: auto
+    font-family: $ff-raleway
+    font-weight: 500
+    color: $color-grey
+    background-color: $color-white
+    &::-webkit-scrollbar
+        display: none    
+ul
+    list-style-type: none
+span, a, img, button, input
+    display: block
+button
+    background-color: transparent
+    border: none
+    color: inherit
+    font-size: inherit
+    &:hover
+        cursor: pointer
+a
+    text-decoration: none
+    color: inherit
+img
+    max-width: 100%
+figure
+    height: 100%
+h1
+    font-size: 3.2rem
+    line-height: 1.3
+    margin-bottom: 2.2rem
+    @media screen and (min-width: 48em)
+        font-size: 4rem
+        text-align: left !important
+    @media screen and (min-width: 62em)
+        font-size: 5.5rem
+h2
+    font-size: 2.4rem
+    line-height: 1.3
+    font-weight: 500
+    margin-bottom: 2rem
+    @media screen and (min-width: 48em)
+        font-size: 3rem
+    @media screen and (min-width: 62em)
+        font-size: 3.6rem
+h5
+    font-size: 2rem
+    font-weight: 500
+    margin-bottom: 1.4rem
+
+@keyframes animateToUp
+    0%
+        transform: translateY(2em)
+        opacity: 0
+    100%
+        transform: translateY(0)
+        opacity: 1
